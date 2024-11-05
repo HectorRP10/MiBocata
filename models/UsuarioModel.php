@@ -46,6 +46,34 @@ class Usuario {
 
 
 
+    public function Accion_permitida() {
+        $accionesPermitidas = [
+            self::TIPOS_USUARIO['ALUMNO'],
+            self::TIPOS_USUARIO['ADMIN'],
+            self::TIPOS_USUARIO['Cocina']
+        ];
+
+        if (in_array($this->tipoUsuario, $accionesPermitidas)) {
+            return "Acción permitida para {$this->tipoUsuario}.";
+        } else {
+            return "Acción no permitida para {$this->tipoUsuario}.";
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 ?>
