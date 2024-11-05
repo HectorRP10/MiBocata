@@ -12,7 +12,7 @@ class Usuario {
         'ADMINISTRADOR' => 'admin'
     ];
 
-    public function __construct($id,$contrasenya,$mac,$correo, $tipoUsuario) {
+    public function __construct($id=null ,$contrasenya=null,$mac=null,$correo=null, $tipoUsuario=null) {
         $this->id = $id;
         $this->contrasenya = $contrasenya;
         $this->mac = $mac;
@@ -90,7 +90,28 @@ class Usuario {
 
 
 
+    public function modificar_usuario($id,$correo, $contrasenya,$mac,$tipoUsuario){
+        $conexion = Database::getInstance()->getConnection();
 
+        $sql = "UPDATE usuarios SET correo = :correo, contrasenya = :contrasenya, mac = :mac, tipoUsuario = :tipoUsuario WHERE id = :id";
+        $stmt = $conexion->prepare($sql);
+
+        $stmt->execute([
+            ':id' => $id,
+            ':correo' => $correo,
+            ':contrasenya' => $contrasenya,
+            ':mac' => $mac,
+            ':tipoUsuario' => $tipoUsuario
+        ]);
+
+        if ($stmt->rowCount() > 0) {
+            
+            return new Usuario($id, $contrasenya, $mac, $correo, $tipoUsuario);
+        } else {
+            return null; 
+        }
+
+    }
 
 
 
