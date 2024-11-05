@@ -62,7 +62,31 @@ class Usuario {
 
 
 
+    public function Obtener_usuario($correo, $contrasenya){
+        $conexion = Database::getInstance()->getConnection();
 
+        $sql = "SELECT * FROM usuarios WHERE correo = :correo AND contrasenya = :contrasenya";
+        $stmt = $conexion->prepare($sql);
+        $stmt->execute([
+            ':correo' => $correo,
+            ':contrasenya' => $contrasenya
+        ]);
+
+        $datosUsuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($datosUsuario) {
+            return new Usuario(
+                $datosUsuario['id'],
+                $datosUsuario['contrasenya'],
+                $datosUsuario['mac'],
+                $datosUsuario['correo'],
+                $datosUsuario['tipoUsuario']
+            );
+        } else {
+            return null;
+        }
+
+    }
 
 
 
