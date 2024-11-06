@@ -54,15 +54,15 @@ public function nuevo_pedido(){
     $fecha_convertida = $this->fecha->format('Y-m-d H:i:s');
 
     $stmt->execute([
-        ':id_alumno' => $id_alumno,
-        ':id_bocadillo' => $id_bocadillo,
-        ':id_descuento' => $id_descuento,
-        ':precio' => $precio,
-        ':fecha'=> $fecha_convertida,
-        ':retirado'=> null
+        ':id_alumno' => $this->id_alumno,
+        ':id_bocadillo' => $this->id_bocadillo,
+        ':id_descuento' => $this->id_descuento,
+        ':precio' => $this->precio,
+        ':fecha' => $fecha_convertida,
+        ':retirado' => $this->retirado
     ]);
 
-    //Se asigna el ID del pedido
+    //Se asigna el ID del pedido, es autoincrement en la BD
     if ($stmt->rowCount() > 0) {
         $this->id = $conexion->lastInsertId(); 
         return $this;
