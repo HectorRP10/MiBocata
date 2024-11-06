@@ -70,7 +70,6 @@ public function nuevo_pedido(){
         return null;
     }
 
-
 }
 
 
