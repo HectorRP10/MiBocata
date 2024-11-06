@@ -61,6 +61,88 @@ class Bocadillo{
         return $this->fecha_baja;
     }
 
+    public function obtener_bocadillo_caliente(){
+        $conexion = Database::getInstance()->getConnection();
+
+        $numeroDia = date('N');
+        $diasSemana = [
+            1 => self::DIA_SEMANA['LUNES'],
+            2 => self::DIA_SEMANA['MARTES'],
+            3 => self::DIA_SEMANA['MIERCOLES'],
+            4 => self::DIA_SEMANA['JUEVES'],
+            5 => self::DIA_SEMANA['VIERNES'],
+        ];
+
+        //con esto se comprueba que hay dia y si es sabado o domingo se pone a null
+        if (!isset($diasSemana[$numeroDia])) {
+            return []; 
+        }
+
+        $diaActual = $diasSemana[$numeroDia];
+        $sql ="SELECT * FROM bocadillos WHERE tipo_bocadillo=:tipo AND dia_semana=:dia";
+        $stmt=$conexion->prepare($sql);
+        $stmt->execute([
+            ':tipo' => self::TIPO_BOCADILLO['CALIENTE'],
+            ':dia' => $diaActual
+
+        ]);
+
+        $Bocadillos=[];
+        while($fila = $stmt->fetch(PDO::FETCH_ASSOC)){
+            $Bocadillos[]= new Bocadillo(
+            $fila['id'],
+            $fila['nombre'],
+            $fila['precio'],
+            $fila['ingredientes'],
+            $fila['tipo_bocadillo'],
+            $fila['dia_semana'],
+            $fila['fecha_baja'],
+            );
+        }
+        return $Bocadillos;
+    }
+
+    public function obtener_bocadillo_frio(){
+        $conexion = Database::getInstance()->getConnection();
+
+        $numeroDia = date('N');
+        $diasSemana = [
+            1 => self::DIA_SEMANA['LUNES'],
+            2 => self::DIA_SEMANA['MARTES'],
+            3 => self::DIA_SEMANA['MIERCOLES'],
+            4 => self::DIA_SEMANA['JUEVES'],
+            5 => self::DIA_SEMANA['VIERNES'],
+        ];
+
+        //con esto se comprueba que hay dia y si es sabado o domingo se pone a null
+        if (!isset($diasSemana[$numeroDia])) {
+            return []; 
+        }
+        
+        $diaActual = $diasSemana[$numeroDia];
+        $sql ="SELECT * FROM bocadillos WHERE tipo_bocadillo=:tipo AND dia_semana=:dia";
+        $stmt=$conexion->prepare($sql);
+        $stmt->execute([
+            ':tipo' => self::TIPO_BOCADILLO['FRIO'],
+            ':dia' => $diaActual
+
+        ]);
+
+        $Bocadillos=[];
+        while($fila = $stmt->fetch(PDO::FETCH_ASSOC)){
+            $Bocadillos[]= new Bocadillo(
+            $fila['id'],
+            $fila['nombre'],
+            $fila['precio'],
+            $fila['ingredientes'],
+            $fila['tipo_bocadillo'],
+            $fila['dia_semana'],
+            $fila['fecha_baja'],
+            );
+        }
+        return $Bocadillos;
+    }
+
 
 }
 ?>
