@@ -49,7 +49,7 @@ class Bocadillo{
         return $this->nombre;
     }
     public function getIngredientes() {
-        return $this->id;
+        return $this->ingredientes;
     }
     public function getTipoBocadillo() {
         return $this->tipo_bocadillo;
