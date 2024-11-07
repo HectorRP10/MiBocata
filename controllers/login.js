@@ -9,16 +9,16 @@ function login(){
         }).then(response => response.json())
             .then(data => {
             if (data.success) { 
-                const userType = data.data[0].tipo.toLowerCase();
-                 if (userType === 'alumno') { 
+                const tipo_usuario = data.data[0].tipo.toLowerCase();
+                 if (tipo_usuario === 'alumno') { 
                      
                     window.location.href = 'pruebalogin.html';
                  } 
-                else if (userType === 'cocina') {
+                else if (tipo_usuario === 'cocina') {
                     
                     window.location.href = 'pruebacocina.html'; 
                 }
-                    else if (userType === 'admin') {
+                    else if (tipo_usuario === 'admin') {
                      
                     window.location.href = 'pruebaadmin.html'; 
                 }
