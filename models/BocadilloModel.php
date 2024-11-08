@@ -1,16 +1,17 @@
 <?php
+require_once '../inc/conexionSingleton.php';
 class Bocadillo{
     public $id;
     public $nombre;
     public $precio;
     public $ingredientes;
-    public $tipo_bocadillo;
+    public $tipo;
     public $dia_semana;
     public $fecha_baja;
 
     const TIPO_BOCADILLO = [
-        'CALIENTE' => 'caliente',
-        'FRIO' => 'frio'
+        'CALIENTE' => 'Caliente',
+        'FRIO' => 'Frio'
     ];
     const DIA_SEMANA = [
         'LUNES' => 'L',
@@ -21,14 +22,14 @@ class Bocadillo{
     ];
 
 
-    public function __construct($id=null, $nombre=null, $precio=null, $ingredientes=null, $tipo_bocadillo=null, $dia_semana=null, $fecha_baja=null){
+    public function __construct($id=null, $nombre=null, $precio=null, $ingredientes=null, $tipo=null, $dia_semana=null, $fecha_baja=null){
         $this->id = $id;
         $this->nombre = $nombre;
         $this->precio = $precio;
         $this->ingredientes = $ingredientes;
         $this->fecha_baja = $fecha_baja;
-        if (in_array($tipo_bocadillo, self::TIPO_BOCADILLO)) {
-            $this->tipo_bocadillo = $tipo_bocadillo;
+        if (in_array($tipo, self::TIPO_BOCADILLO)) {
+            $this->tipo = $tipo;
         } else {
             throw new Exception("Tipo de bocadillo inválido");
         }
@@ -52,7 +53,7 @@ class Bocadillo{
         return $this->ingredientes;
     }
     public function getTipoBocadillo() {
-        return $this->tipo_bocadillo;
+        return $this->tipo;
     }
     public function getDiaSemana() {
         return $this->dia_semana;
@@ -61,7 +62,7 @@ class Bocadillo{
         return $this->fecha_baja;
     }
 
-    public function obtener_bocadillo_caliente(){
+    public static function obtener_bocadillo_caliente(){
         $conexion = Database::getInstance()->getConnection();
 
         $numeroDia = date('N');
@@ -79,12 +80,11 @@ class Bocadillo{
         }
 
         $diaActual = $diasSemana[$numeroDia];
-        $sql ="SELECT * FROM bocadillos WHERE tipo_bocadillo=:tipo AND dia_semana=:dia";
+        $sql ="SELECT * FROM bocadillos WHERE tipo=:tipo AND dia_semana=:dia";
         $stmt=$conexion->prepare($sql);
         $stmt->execute([
             ':tipo' => self::TIPO_BOCADILLO['CALIENTE'],
             ':dia' => $diaActual
-
         ]);
 
         $Bocadillos=[];
@@ -94,7 +94,7 @@ class Bocadillo{
             $fila['nombre'],
             $fila['precio'],
             $fila['ingredientes'],
-            $fila['tipo_bocadillo'],
+            $fila['tipo'],
             $fila['dia_semana'],
             $fila['fecha_baja'],
             );
@@ -102,7 +102,7 @@ class Bocadillo{
         return $Bocadillos;
     }
 
-    public function obtener_bocadillo_frio(){
+    public static function obtener_bocadillo_frio(){
         $conexion = Database::getInstance()->getConnection();
 
         $numeroDia = date('N');
@@ -120,7 +120,7 @@ class Bocadillo{
         }
         
         $diaActual = $diasSemana[$numeroDia];
-        $sql ="SELECT * FROM bocadillos WHERE tipo_bocadillo=:tipo AND dia_semana=:dia";
+        $sql ="SELECT * FROM bocadillos WHERE tipo=:tipo AND dia_semana=:dia";
         $stmt=$conexion->prepare($sql);
         $stmt->execute([
             ':tipo' => self::TIPO_BOCADILLO['FRIO'],
@@ -135,7 +135,7 @@ class Bocadillo{
             $fila['nombre'],
             $fila['precio'],
             $fila['ingredientes'],
-            $fila['tipo_bocadillo'],
+            $fila['tipo'],
             $fila['dia_semana'],
             $fila['fecha_baja'],
             );

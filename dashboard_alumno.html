@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="controllers/logout.js"></script>
+    <script src="controllers/comprueba_sesion.js"></script>
+	<script src="controllers/bocadillo_caliente.js"></script>
+	<script src="controllers/bocadillo_frio.js"></script>
+	<title>Panel alumno</title>
+</head>
+<body onload="comprueba_sesion(); obtener_bocadillo_caliente(); obtener_bocadillo_frio()">
+	<h1>ALUMNO FUNCIONA</h1>
+    <button onclick="logout()">Cerrar Sesion</button>
+    <div id="usuario"></div>
+	<div id="bocadillo_caliente"></div>
+	<div id="bocadillo_frio"></div>
+</body>
+</html>
