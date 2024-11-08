@@ -5,21 +5,25 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Dashboard Alumno</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="controllers/logout.js"></script>
+    <script src="controllers/comprueba_sesion.js"></script>
     <link rel='stylesheet' type='text/css' media='screen' href='css/Dashboard_alumno.css'>
     
 </head>
 <body>
     <header>
+        <img src="logoMiBocata.png" alt="" id="logo_app">
+        <h1>Manuel Perez</h1>
         <nav>
-            <img src="logoMiBocata.png" alt="">
-            <h1>14 octubre</h1>
-
-            <ul class="ul_header">
-                <li><a href="log_out.php">Cerrar sesión</a></li>
-            </ul>
+            <div class="div_button">
+                <button onclick="logout()" id="btn_seleccion_bocadillo">Selección bocadillo</button>
+                <button onclick="logout()" id="btn_historial_pedidos">Historial pedidos</button>
+                <button onclick="logout()" id="btn_cerrar_sesion"> Cerrar sesión</button>
+            </div>
         </nav> 
     </header>
 
+    <h1>Elige el Bocadillo de hoy:</h1>
     
     
 </body>
