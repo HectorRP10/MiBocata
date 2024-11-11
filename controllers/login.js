@@ -12,7 +12,7 @@ function login(){
                 const tipo_usuario = data.data[0].tipo.toLowerCase();
                  if (tipo_usuario === 'alumno') { 
                      
-                    window.location.href = 'dashboard_alumno.html';
+                    window.location.href = 'DashboardAlumno.html';
                  } 
                 else if (tipo_usuario === 'cocina') {
                     

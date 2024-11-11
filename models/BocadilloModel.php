@@ -18,7 +18,9 @@ class Bocadillo{
         'MARTES' => 'M',
         'MIERCOLES' => 'X',
         'JUEVES' => 'J',
-        'VIERNES' => 'V'
+        'VIERNES' => 'V',
+        'SABADO' => 'S',
+        'DOMINGO' => 'D'
     ];
 
 
@@ -71,7 +73,9 @@ class Bocadillo{
             2 => self::DIA_SEMANA['MARTES'],
             3 => self::DIA_SEMANA['MIERCOLES'],
             4 => self::DIA_SEMANA['JUEVES'],
-            5 => self::DIA_SEMANA['VIERNES'],
+            5 => self::DIA_SEMANA['VIERNES'],   
+            6 => self::DIA_SEMANA['SABADO'],
+            7 => self::DIA_SEMANA['DOMINGO'],
         ];
 
         //con esto se comprueba que hay dia y si es sabado o domingo se pone a null
@@ -112,6 +116,8 @@ class Bocadillo{
             3 => self::DIA_SEMANA['MIERCOLES'],
             4 => self::DIA_SEMANA['JUEVES'],
             5 => self::DIA_SEMANA['VIERNES'],
+            6 => self::DIA_SEMANA['SABADO'],
+            7 => self::DIA_SEMANA['DOMINGO'],
         ];
 
         //con esto se comprueba que hay dia y si es sabado o domingo se pone a null

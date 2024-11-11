@@ -45,3 +45,11 @@ button{
     font-weight: bold;
     cursor: pointer;
 }
+
+#bocadillo_frio{
+    background-color: green;
+}
+
+#bocadillo_caliente{
+    background-color: red;
+}
