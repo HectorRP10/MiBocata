@@ -17,8 +17,8 @@ public function __construct($id=null,$id_alumno=null,$id_bocadillo=null,$id_desc
     $this->id_bocadillo = $id_bocadillo;
     $this->id_descuento = $id_descuento;
     $this->precio = $precio;
-    $this->fecha = new DateTime();
-    $this->retirado = null;
+    $this->fecha = new DateTime($fecha);
+    $this->retirado = new DateTime($retirado);
 }
 
 
@@ -37,23 +37,27 @@ public function getIdDescuento() {
 public function getPrecio() {
     return $this->precio;
 }
-public function getFecha() {
-    return $this->fecha;
+public function getFecha() { 
+    return $this->fecha->format('Y-m-d H:i:s'); 
 }
 public function getRetirado() {
-    return $this->retirado;
+    return $this->retirado->format('Y-m-d H:i:s');
 }
 
 
 
-public static function nuevo_pedido($id_alumno, $id_bocadillo, $precio, $fecha) {
+public function nuevo_pedido($id_alumno, $id_bocadillo, $precio, $fecha) {
     // Conexión a la base de datos
     $db = Database::getInstance();
     $conn = $db->getConnection();
 
     
-    $query = "INSERT INTO pedidos (id_alumno, id_bocadillo, precio, fecha) VALUES ($id_alumno, $id_bocadillo, '$precio', '$fecha')";
+    $query = "INSERT INTO pedidos (id_alumno, id_bocadillo, precio, fecha) VALUES (:id_alumno, :id_bocadillo, :precio, :fecha)";
     $stmt = $conn->prepare($query);
+    $stmt->bindParam(':id_alumno', $id_alumno); 
+    $stmt->bindParam(':id_bocadillo', $id_bocadillo); 
+    $stmt->bindParam(':precio', $precio); 
+    $stmt->bindParam(':fecha', $fecha);
     
     if ($stmt->execute()) {
         return [

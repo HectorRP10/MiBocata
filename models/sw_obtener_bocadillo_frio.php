@@ -4,13 +4,14 @@ require_once '../inc/conexionSingleton.php';
 require 'BocadilloModel.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $bocadillo = Bocadillo::obtener_bocadillo_frio();
+    $bocadillo = new Bocadillo();
+    $respuesta = $bocadillo->obtener_bocadillo_frio();
 
-    if ($bocadillo) {
+    if ($respuesta) {
         echo json_encode([
             "success" => true,
             "msg" => "Bocadillo frio exitoso.", 
-            "data" => $bocadillo
+            "data" => $respuesta
         ]);
     } else {
         echo json_encode([

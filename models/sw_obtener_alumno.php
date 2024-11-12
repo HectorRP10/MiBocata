@@ -1,22 +1,21 @@
 <?php
 session_start();
 require_once '../inc/conexionSingleton.php';
-require 'BocadilloModel.php';
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $bocadillo = new Bocadillo();
-    $respuesta = $bocadillo->obtener_bocadillo_caliente();
+    $alumno = $_SESSION['id'];
 
-    if ($respuesta) {
+    if ($alumno) {
         echo json_encode([
             "success" => true,
-            "msg" => "Bocadillo caliente exitoso.", 
-            "data" => $respuesta
+            "msg" => "Alumno obtenido exitoso.", 
+            "data" => $alumno
         ]);
     } else {
         echo json_encode([
             "success" => false,
-            "msg" => "Ha ocurrido un error.",
+            "msg" => "Ha ocurrido un error al encontrar el alumno.",
             "data" => []
         ]);
     }

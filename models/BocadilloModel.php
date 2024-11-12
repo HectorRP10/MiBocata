@@ -30,17 +30,14 @@ class Bocadillo{
         $this->precio = $precio;
         $this->ingredientes = $ingredientes;
         $this->fecha_baja = $fecha_baja;
-        if (in_array($tipo, self::TIPO_BOCADILLO)) {
-            $this->tipo = $tipo;
-        } else {
-            throw new Exception("Tipo de bocadillo inválido");
+        if ($tipo !== null && !in_array($tipo, self::TIPO_BOCADILLO)) { 
+            throw new Exception("Tipo de bocadillo inválido"); 
         }
-
-        if (in_array($dia_semana, self::DIA_SEMANA)) {
-            $this->dia_semana = $dia_semana;
-        } else {
-            throw new Exception("Dia de la semana inválido");
+        $this->tipo = $tipo;
+        if ($dia_semana !== null && !in_array($dia_semana, self::DIA_SEMANA)) {
+             throw new Exception("Dia de la semana inválido"); 
         }
+         $this->dia_semana = $dia_semana;
 
     }
 
@@ -64,7 +61,7 @@ class Bocadillo{
         return $this->fecha_baja;
     }
 
-    public static function obtener_bocadillo_caliente(){
+    public function obtener_bocadillo_caliente(){
         $conexion = Database::getInstance()->getConnection();
 
         $numeroDia = date('N');
@@ -106,7 +103,7 @@ class Bocadillo{
         return $Bocadillos;
     }
 
-    public static function obtener_bocadillo_frio(){
+    public function obtener_bocadillo_frio(){
         $conexion = Database::getInstance()->getConnection();
 
         $numeroDia = date('N');
