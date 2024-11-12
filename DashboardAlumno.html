@@ -10,16 +10,16 @@
     <script src="controllers/bocadillo_caliente.js"></script>
 	<script src="controllers/bocadillo_frio.js"></script>
     <script src="controllers/reserva_bocadillo.js"></script>
+    <script src="controllers/reservar_bocadillo_frio.js"></script>
     <link rel='stylesheet' type='text/css' media='screen' href='css/Dashboard_alumno.css'>
     
 </head>
 <body onload="comprueba_sesion(); obtener_bocadillo_caliente(); obtener_bocadillo_frio();">
     <header>
         <img src="images/logoMiBocata.png" alt="" id="logo_app">
-        <h1>Manuel Perez</h1>
         <nav>
             <div class="div_button">
-                <button onclick="" id="btn_seleccion_bocadillo">Selección bocadillo</button>
+                <button onclick="DashboardAlumno.html" id="btn_seleccion_bocadillo">Selección bocadillo</button>
                 <button onclick="" id="btn_historial_pedidos">Historial pedidos</button>
                 <button onclick="logout()" id="btn_cerrar_sesion"> Cerrar sesión</button>
             </div>
@@ -27,17 +27,15 @@
     </header>
 
     <h1>Elige el Bocadillo de hoy:</h1>
-    
-    <div id="bocadillo_frio">
-
-        <h2>Fresquito</h2>
-
+    <div class="contenedor_bocadillos">
+        <div id="bocadillo_frio" onclick="reservar_bocadillo_frio()">
+            <h2>Bocadillo Frío</h2>
+        </div>
+        
+        <div id="bocadillo_caliente" onclick="reservar_bocadillo()">
+            <h2>Bocadillo Caliente</h2>
+        </div>
     </div>
-
-    <div id="bocadillo_caliente">
-        <h2>Calentito</h2>
-    </div>
-    <button id="boton_reservar" onclick="reservar_bocadillo()"> Reservar</button>
     
 </body>
 </html>
