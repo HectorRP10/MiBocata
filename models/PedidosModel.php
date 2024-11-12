@@ -71,6 +71,22 @@ public function nuevo_pedido($id_alumno, $id_bocadillo, $precio, $fecha) {
     }
 }
 
-    
+public function modificar_pedido($id_bocadillo, $precio, $fecha){
+    $conexion = Database::getInstance()->getConnection();
+
+    $sql ="UPDATE pedidos SET id_bocadillo = :id_bocadillo, precio = :precio, fecha= :fecha WHERE id_alumno = :id_alumno";
+    $stmt=$conexion->prepare($sql);
+    if ($stmt->execute()) {
+        return [
+            'id_alumno' => $id_alumno,
+            'id_bocadillo' => $id_bocadillo,
+            'precio' => $precio,
+            'fecha' => $fecha
+        ];
+    } else {
+        return false;
+    }
+}
+
 }
 ?>
