@@ -11,6 +11,7 @@ header {
     padding: 25px 35px;
     background-color: antiquewhite; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
 }
 
 img{
@@ -21,6 +22,7 @@ nav{
     flex-grow: 1;
     display: flex;
     justify-content: flex-end;
+    flex-wrap: wrap;
 }
 
 
@@ -78,9 +80,29 @@ h2{
 }
 
 #bocadillo_frio{
-    background-color: green;
+    background-color:#5DB529;
+}
+
+#bocadillo_frio:hover{
+    background-color: rgb(123, 252, 118);
 }
 
 #bocadillo_caliente{
-    background-color: red;
+    background-color: #CB4D4D;
+}
+
+#bocadillo_caliente:hover{
+    background-color: #fa8989;
+}
+
+#bocadillo_dia{
+    margin-left: 40px;
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+#info_cambio_cancelar{
+    margin-left: 40px;
+    margin-top: 20px;
+    font-size: 15px;
 }

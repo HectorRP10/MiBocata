@@ -8,9 +8,12 @@ function reservar_bocadillo_frio() {
             const bocadillo = data.data[0];
             const id_bocadillo = bocadillo.id; 
             const precio = bocadillo.precio; 
-            const id_alumno = 1;                      //TODO MODIFICAR EL USUARIO SEGUN LOGIN
-
-            const formData = new FormData();
+            fetch('models/sw_obtener_alumno.php').
+            then(response => response.json()).
+            then(alumno_obtenido =>{
+                if (alumno_obtenido.success){
+                    const id_alumno = alumno_obtenido.data;
+                    const formData = new FormData();
             formData.append('id_alumno', id_alumno);
             formData.append('id_bocadillo', id_bocadillo);
             formData.append('precio', precio);
@@ -31,6 +34,11 @@ function reservar_bocadillo_frio() {
             .catch(error => {
                 console.error('Error en la solicitud:', error);
             });
+                }
+                else{
+                    console.log('Error al obtener el alumno:', alumno_obtenido.msg);
+                }
+            })
         } else {
             console.log('Error al obtener el bocadillo frio:', data.msg);
         }
