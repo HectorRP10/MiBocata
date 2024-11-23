@@ -197,5 +197,31 @@ public function gestionar_pedido($id_alumno, $id_bocadillo, $precio, $fecha) {
 }
 
 
+public function total_bocadillos_dia() {
+    $db = Database::getInstance();
+    $conn = $db->getConnection();
+
+    $fecha_actual = (new DateTime())->format('Y-m-d');
+    $query = "SELECT (SELECT COUNT(*) FROM pedidos p JOIN bocadillos b ON p.id_bocadillo = b.id WHERE b.tipo = 'caliente' AND DATE(p.fecha) = :fecha) AS total_calientes, 
+    (SELECT COUNT(*) FROM pedidos p JOIN bocadillos b ON p.id_bocadillo = b.id WHERE b.tipo = 'frio' AND DATE(p.fecha) = :fecha) AS total_frios";
+
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':fecha', $fecha_actual);
+
+    if ($stmt->execute() && $result = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        return [
+            "success" => true,
+            "msg" => "Bocadillos obtenidos con éxito.",
+            "data" => $result
+        ];
+    }
+    return [
+        "success" => false,
+        "msg" => "No hay bocadillos hoy.",
+        "data" => []
+    ];
+}
+
+
 }
 ?>

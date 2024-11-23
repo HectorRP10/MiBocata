@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 35px;
+    background-color: antiquewhite; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+}
+
+img{
+    max-height: 100px;
+}
+
+nav{
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+nav, h1{
+    text-align: center;
+}
+
+h1{
+    color: black;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.div_button{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+button{
+    display: flex;
+    align-items: center;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.contenedor_bocadillos {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 80px;
+    text-align: center;
+    margin-top: 15px;
+
+}
+
+#bocadillos_frios, #bocadillos_calientes{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    padding: 10px; 
+    cursor: pointer;
+    flex-direction: column; 
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 15px
+}
+
+
+#bocadillos_frios{
+    background-color: #5DB529;
+}
+#bocadillos_calientes{
+    background-color: #CB4D4D;
+
+}
