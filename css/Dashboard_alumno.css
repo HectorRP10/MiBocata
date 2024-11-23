@@ -48,6 +48,23 @@ button{
     cursor: pointer;
 }
 
+table, th, td{
+    border: 1px solid;
+    padding: 2px;
+}
+
+
+table{
+    width: 80%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-left: 10%;
+}
+
+.contenedor_filtro{
+    margin-left: 10%;
+    margin-bottom: 1%;
+}
 .contenedor_bocadillos {
     display: flex;
     justify-content: center; 
