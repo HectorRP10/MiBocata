@@ -7,12 +7,12 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script src="controllers/logout.js"></script>
     <script src="controllers/total_bocadillos_dia.js"></script>
+    <script src="controllers/filtrar_pedidos.js"></script>
     <link rel='stylesheet' type='text/css' media='screen' href='css/Dashboard_cocina.css'>
 </head>
-<body onload="total_bocadillos_dia()" >
+<body onload="total_bocadillos_dia(); cargarPedidos() ">
     <header>
         <img src="images/logoMiBocata.png" alt="" id="logo_app">
-        <h1 id="usuario"></h1>
         <nav>
             <h1>COCINA</h1>
             <div class="div_button">
@@ -29,7 +29,31 @@
         </div>
     </div >
 
-
+    <div class="filtros">
+        <h3>Nombre</h3>
+        <input type="text" id="nombre_alumno">
+        <h3>Curso:</h3>
+        <input type="text" id="curso_alumno">
+        <h3>Tipo:</h3>
+        <select id="tipo_bocadillo">
+            <option value="">--Seleccionar--</option>
+            <option value="Frio">Frio</option>
+            <option value="Caliente">Caliente</option>
+        </select>
+        <button onclick="filtrar_bocadillos()" id="boton_filtrar">Filtrar</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Curso</th>
+                <th>Retirado</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    
 
 </body>
 </html>
