@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Dashboard Alumno</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="controllers/logout.js"></script>
+    <script src="controllers/comprueba_sesion.js"></script>
+    <script src="controllers/historial_bocadillos_alumno.js"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/Dashboard_alumno.css'>
+    
+</head>
+    <body onload="comprueba_sesion(); obtener_historial_pedidos_alumno() ">
+    <header>
+        <img src="images/logoMiBocata.png" alt="" id="logo_app">
+        <h1 id="usuario"></h1>
+        <nav>
+            <div class="div_button">
+                <button id="btn_seleccion_bocadillo" role="link" onclick="window.location='dashboard_alumno.html'">Selección bocadillo</button>
+                <button id="btn_historial_pedidos" role="link" onclick="window.location='historial_bocadillos_alumno.html'">Historial pedidos</button>
+                <button onclick="logout()" id="btn_cerrar_sesion"> Cerrar sesión</button>
+            </div>
+        </nav> 
+    </header>
+
+    <h1>Historial de bocadillos</h1>
+
+    <div class="contenedor_filtro">
+    <label for="num_registros">Mostrar:</label>
+    <select name="num_registros" id="num_registros" onchange="filtrarHistorial()">
+        <option value="7">1 Semana</option>
+        <option value="30">1 Mes</option>
+        <option value="365">1 Año</option>
+    </select>
+    </div>
+    <table>
+        <thead>
+            <th>Bocadillo</th>
+            <th>Tipo Bocadillo</th>
+            <th>Precio</th>
+            <th>Fecha Pedido</th>
+        </thead>
+        <tbody id="tabla"></tbody>
+    </table>
+</body>
+</html>
