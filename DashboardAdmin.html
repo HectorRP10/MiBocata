@@ -3,32 +3,28 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Dashboard Cocina</title>
+    <title>Dashboard Admin</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script src="controllers/logout.js"></script>
     <script src="controllers/comprueba_sesion.js"></script>
-    <script src="controllers/total_bocadillos_dia.js"></script>
-    <script src="controllers/filtrar_pedidos.js"></script>
-    <link rel='stylesheet' type='text/css' media='screen' href='css/Dashboard_cocina.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/Dashboard_admin.css'>
+     
 </head>
-<body onload="total_bocadillos_dia(); cargarPedidos() ">
+<body>
     <header>
         <img src="images/logoMiBocata.png" alt="" id="logo_app">
+        <h1>Administrador</h1>
         <nav>
-            <h1>COCINA</h1>
-            <div class="div_button">
+            <div class="div_button"> 
+                <button id="btn_seleccion_bocadillo" role="link" onclick="window.location='dashboard_alumno.html'">ADMIN</button>
+                <button id="btn_historial_pedidos" role="link" onclick="window.location='historial_bocadillos_alumno.html'">ADMIN</button>
                 <button onclick="logout()" id="btn_cerrar_sesion"> Cerrar sesión</button>
             </div>
         </nav> 
     </header>
 
-    <div class="contenedor_bocadillos">
-        <h1>Total bocadillos hoy: </h1>
-        <div id="bocadillos_frios">
-        </div>
-        <div id="bocadillos_calientes" >
-        </div>
-    </div >
+    <h1>Alumnos</h1>
+    <button>Nuevo Alumno</button>
 
     <div class="filtros">
         <h3>Nombre</h3>
@@ -43,18 +39,19 @@
         </select>
         <button onclick="filtrar_bocadillos()" id="boton_filtrar">Filtrar</button>
     </div>
+
     <table>
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Tipo</th>
                 <th>Curso</th>
-                <th>Retirado</th>
+                <th>Alta/baja</th>
+                <th>Motivo baja</th>
+                <th>Selección bocadillo</th>
             </tr>
         </thead>
         <tbody></tbody>
     </table>
-    
 
 </body>
 </html>
