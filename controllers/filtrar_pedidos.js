@@ -40,9 +40,6 @@ function cargarPedidos(pagina = 1) {
     .catch(error => console.error('Error:', error));
 }
 
-function filtrar_bocadillos(pagina = 1) {
-    cargarPedidos(pagina);
-}
 
 function actualizar_paginador(total, pagina, cantidad_resultados) {
     const total_paginas = Math.ceil(total / cantidad_resultados);

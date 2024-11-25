@@ -8,11 +8,11 @@ function total_bocadillos_dia() {
                 contenedorCalientes.innerHTML = '';
                 contenedorFrios.innerHTML = '';
                 var totalCalientes = document.createElement('p');
-                totalCalientes.innerHTML = `Calientes: ${data.data.total_calientes}`;
+                totalCalientes.innerHTML = `Bocadillos Calientes: ${data.data.total_calientes}`;
                 contenedorCalientes.appendChild(totalCalientes);
 
                 var totalFrios = document.createElement('p');
-                totalFrios.innerHTML = `Fríos: ${data.data.total_frios}`;
+                totalFrios.innerHTML = `Bocadillos Fríos: ${data.data.total_frios}`;
                 contenedorFrios.appendChild(totalFrios);
             } else {
                 console.error(data.msg);
