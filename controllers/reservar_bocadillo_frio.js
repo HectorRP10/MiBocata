@@ -27,6 +27,9 @@ function reservar_bocadillo_frio() {
             .then(data => {
                 if (data.success) {
                     console.log('Pedido realizado con éxito:', data);
+
+                    // Actualiza el div de bocadillo
+                    obtener_bocadillo_dia();
                 } else {
                     console.log('Error al realizar el pedido:', data.msg);
                 }
