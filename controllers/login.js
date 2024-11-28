@@ -20,7 +20,7 @@ function login(){
                 }
                     else if (tipo_usuario === 'admin') {
                      
-                    window.location.href = 'pruebaadmin.html'; 
+                    window.location.href = 'DashboardAdmin.html'; 
                 }
             } else { 
                     alert(data.msg); } 
