@@ -77,6 +77,7 @@ function retirar_pedidos(idPedido) {
             console.log('Pedido marcado como retirado con éxito:', data);
             alert('El pedido ha sido marcado como retirado.');
             cargarPedidos(pagina_actual); // para recargar dinámicamente 
+            bocadillos_por_retirar();
         } else {
             console.error('Error al marcar el pedido:', data.msg);
             alert(`Error: ${data.msg}`);

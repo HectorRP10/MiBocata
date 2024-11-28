@@ -256,5 +256,32 @@ public function retirar_pedido($idPedido) {
     }
 }
 
+
+
+public function bocadillos_sin_recoger(){
+        $db = Database::getInstance();
+        $conn = $db->getConnection();
+        $fecha_actual = (new DateTime())->format('Y-m-d');
+
+        $query = "SELECT (SELECT COUNT(*) FROM pedidos p JOIN bocadillos b ON p.id_bocadillo = b.id WHERE b.tipo = 'caliente' AND DATE(p.fecha) = :fecha AND p.retirado IS NULL) AS total_calientes, 
+                (SELECT COUNT(*) FROM pedidos p JOIN bocadillos b ON p.id_bocadillo = b.id WHERE b.tipo = 'frio' AND DATE(p.fecha) = :fecha AND p.retirado IS NULL) AS total_frios";
+                
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(':fecha', $fecha_actual);
+
+        if ($stmt->execute() && $result = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            return [
+                "success" => true,
+                "msg" => "Bocadillos sin recoger obtenidos con éxito.",
+                "data" => $result
+            ];
+        }
+        return [
+            "success" => false,
+            "msg" => "No hay bocadillos sin recoger hoy.",
+            "data" => []
+        ];
+    }
+
 }
 ?>
