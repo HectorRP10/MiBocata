@@ -25,7 +25,6 @@ nav{
     flex-wrap: wrap;
 }
 
-
 h1{
     color: black;
     margin-left: 40px;
@@ -45,4 +44,36 @@ button{
     padding: 10px;
     font-weight: bold;
     cursor: pointer;
+}
+.filtros{
+    display: flex;
+    justify-content: start; 
+    align-items: start; 
+    gap: 20px;
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 15px;
+    flex-wrap: wrap;
+}
+
+#boton_filtrar{
+    display: flex;
+    align-items: center;
+    background-color: rgb(218, 216, 214);
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+table{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px; 
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px; 
+    text-align: center; 
+    border: 2px solid black;
 }

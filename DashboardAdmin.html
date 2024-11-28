@@ -6,18 +6,20 @@
     <title>Dashboard Admin</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script src="controllers/logout.js"></script>
+    <script src="controllers/reserva_bocadillo.js"></script>
+    <script src="controllers/reservar_bocadillo_frio.js"></script>
     <script src="controllers/comprueba_sesion.js"></script>
+    <script src="controllers/filtrar_alumnos.js"></script>
+
     <link rel='stylesheet' type='text/css' media='screen' href='css/Dashboard_admin.css'>
      
 </head>
-<body>
+<body onload="MostrarAlumnos(); comprueba_sesion(); ">
     <header>
         <img src="images/logoMiBocata.png" alt="" id="logo_app">
         <h1>Administrador</h1>
         <nav>
             <div class="div_button"> 
-                <button id="btn_seleccion_bocadillo" role="link" onclick="window.location='dashboard_alumno.html'">ADMIN</button>
-                <button id="btn_historial_pedidos" role="link" onclick="window.location='historial_bocadillos_alumno.html'">ADMIN</button>
                 <button onclick="logout()" id="btn_cerrar_sesion"> Cerrar sesión</button>
             </div>
         </nav> 
@@ -31,22 +33,17 @@
         <input type="text" id="nombre_alumno">
         <h3>Curso:</h3>
         <input type="text" id="curso_alumno">
-        <h3>Tipo:</h3>
-        <select id="tipo_bocadillo">
-            <option value="">--Seleccionar--</option>
-            <option value="Frio">Frio</option>
-            <option value="Caliente">Caliente</option>
-        </select>
-        <button onclick="filtrar_bocadillos()" id="boton_filtrar">Filtrar</button>
+        <button onclick="filtrar_alumnos()" id="boton_filtrar">Filtrar</button>
     </div>
+
 
     <table>
         <thead>
             <tr>
                 <th>Nombre</th>
                 <th>Curso</th>
-                <th>Alta/baja</th>
                 <th>Motivo baja</th>
+                <th>Alta/baja</th>
                 <th>Selección bocadillo</th>
             </tr>
         </thead>
