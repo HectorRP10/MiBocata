@@ -11,7 +11,7 @@
     <script src="controllers/filtrar_pedidos.js"></script>
     <link rel='stylesheet' type='text/css' media='screen' href='css/Dashboard_cocina.css'>
 </head>
-<body onload="total_bocadillos_dia(); cargarPedidos(); comprueba_sesion(); ">
+<body onload="total_bocadillos_dia(); cargarPedidos(); bocadillos_por_retirar(); ">
     <header>
         <img src="images/logoMiBocata.png" alt="" id="logo_app">
         <nav>
@@ -22,13 +22,22 @@
         </nav> 
     </header>
 
-    <div class="contenedor_bocadillos">
-        <h1>Total bocadillos hoy: </h1>
-        <div id="bocadillos_frios">
+    <div class="bocata_info">
+        <div class="contenedor_bocadillos">
+            <h1>Total bocadillos hoy: </h1>
+            <div id="bocadillos_frios">
+            </div>
+            <div id="bocadillos_calientes" >
         </div>
-        <div id="bocadillos_calientes" >
-        </div>
-    </div >
+        
+        <div class="contenedor_bocadillos">
+            
+            <div id="retirar_bocadillos_frios">
+            </div>
+            <div id="retirar_bocadillos_calientes" >
+            </div>
+        </div >
+    </div>
 
     <div class="filtros">
         <h3>Nombre</h3>

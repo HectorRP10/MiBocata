@@ -45,42 +45,36 @@ button{
     font-weight: bold;
     cursor: pointer;
 }
+
 .contenedor_bocadillos {
     display: flex;
+    flex-direction: row; 
     justify-content: center; 
     align-items: center; 
-    gap: 80px;
     text-align: center;
-    margin-top: 15px;
-
+    margin-top: 20px;
+    gap: 20px; 
 }
 
-#bocadillos_frios, #bocadillos_calientes{
-    width: 100px;
-    height: 100px;
-    display: flex;
-    padding: 10px; 
-    cursor: pointer;
-    flex-direction: column; 
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 15px
-}
-
-
-#bocadillos_frios{
+.contenedor_bocadillos > div {
+    width: 150px;
+    height: 150px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 15px;
+    color: white;
+}
+
+#bocadillos_frios, #retirar_bocadillos_frios {
     background-color: #5DB529;
 }
-#bocadillos_calientes{
-    display: flex;
-    justify-content: center;
-    background-color: #CB4D4D;
 
+#bocadillos_calientes, #retirar_bocadillos_calientes {
+    background-color: #CB4D4D;
 }
 
 .filtros{
@@ -130,3 +124,15 @@ th, td {
 margin-left: 1%;
 margin-right: 1%;
 }
+
+
+.bocadillos_sin_recoger {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 80px;
+    text-align: center;
+    margin-top: 15px;
+
+}
+
