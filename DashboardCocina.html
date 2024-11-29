@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Dashboard Cocina</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="controllers/logout.js"></script>
+    <script src="controllers/total_bocadillos_dia.js"></script>
+    <script src="controllers/filtrar_pedidos.js"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/Dashboard_cocina.css'>
+</head>
+<body onload="total_bocadillos_dia(); cargarPedidos() ">
+    <header>
+        <img src="images/logoMiBocata.png" alt="" id="logo_app">
+        <nav>
+            <h1>COCINA</h1>
+            <div class="div_button">
+                <button onclick="logout()" id="btn_cerrar_sesion"> Cerrar sesión</button>
+            </div>
+        </nav> 
+    </header>
+
+    <div class="contenedor_bocadillos">
+        <h1>Total bocadillos hoy: </h1>
+        <div id="bocadillos_frios">
+        </div>
+        <div id="bocadillos_calientes" >
+        </div>
+    </div >
+
+    <div class="filtros">
+        <h3>Nombre</h3>
+        <input type="text" id="nombre_alumno">
+        <h3>Curso:</h3>
+        <input type="text" id="curso_alumno">
+        <h3>Tipo:</h3>
+        <select id="tipo_bocadillo">
+            <option value="">--Seleccionar--</option>
+            <option value="Frio">Frio</option>
+            <option value="Caliente">Caliente</option>
+        </select>
+        <button onclick="cargarPedidos()" id="boton_filtrar">Filtrar</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Curso</th>
+                <th>Retirado</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <div id="paginacion"></div>
+</body>
+</html>

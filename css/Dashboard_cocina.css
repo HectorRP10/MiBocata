@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 35px;
+    background-color: antiquewhite;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+}
+
+#logo_app {
+    max-height: 100px;
+}
+
+nav {
+    display: flex;
+    justify-content: center; 
+    flex-grow: 1;
+    position: relative;
+}
+
+h1 {
+    color: black;
+    margin: 0;
+}
+
+.div_button {
+    position: absolute;
+    right: 35px; 
+}
+
+
+button{
+    display: flex;
+    align-items: center;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.contenedor_bocadillos {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 80px;
+    text-align: center;
+    margin-top: 15px;
+
+}
+
+#bocadillos_frios, #bocadillos_calientes{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    padding: 10px; 
+    cursor: pointer;
+    flex-direction: column; 
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 15px
+}
+
+
+#bocadillos_frios{
+    display: flex;
+    justify-content: center;
+    background-color: #5DB529;
+}
+#bocadillos_calientes{
+    display: flex;
+    justify-content: center;
+    background-color: #CB4D4D;
+
+}
+
+.filtros{
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px;
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 15px;
+    flex-wrap: wrap;
+}
+
+#boton_filtrar{
+    display: flex;
+    align-items: center;
+    background-color: rgb(218, 216, 214);
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+table{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px; 
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px; 
+    text-align: center; 
+    border: 2px solid black;
+}
+
+
+
+#paginacion{
+    margin-top: 1%;
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#paginacion > span{
+margin-left: 1%;
+margin-right: 1%;
+}

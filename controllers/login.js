@@ -16,7 +16,7 @@ function login(){
                  } 
                 else if (tipo_usuario === 'cocina') {
                     
-                    window.location.href = 'pruebacocina.html'; 
+                    window.location.href = 'DashboardCocina.html'; 
                 }
                     else if (tipo_usuario === 'admin') {
                      
