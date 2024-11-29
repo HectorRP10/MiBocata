@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Dashboard Admin</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="controllers/logout.js"></script>
+    <script src="controllers/reserva_bocadillo.js"></script>
+    <script src="controllers/reservar_bocadillo_frio.js"></script>
+    <script src="controllers/comprueba_sesion.js"></script>
+    <script src="controllers/filtrar_alumnos.js"></script>
+
+    <link rel='stylesheet' type='text/css' media='screen' href='css/Dashboard_admin.css'>
+     
+</head>
+<body onload="MostrarAlumnos(); comprueba_sesion(); ">
+    <header>
+        <img src="images/logoMiBocata.png" alt="" id="logo_app">
+        <h1>Administrador</h1>
+        <nav>
+            <div class="div_button"> 
+                <button onclick="logout()" id="btn_cerrar_sesion"> Cerrar sesión</button>
+            </div>
+        </nav> 
+    </header>
+
+    <h1>Alumnos</h1>
+    <button>Nuevo Alumno</button>
+
+    <div class="filtros">
+        <h3>Nombre</h3>
+        <input type="text" id="nombre_alumno">
+        <h3>Curso:</h3>
+        <input type="text" id="curso_alumno">
+        <button onclick="filtrar_alumnos()" id="boton_filtrar">Filtrar</button>
+    </div>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Curso</th>
+                <th>Motivo baja</th>
+                <th>Alta/baja</th>
+                <th>Selección bocadillo</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+</body>
+</html>

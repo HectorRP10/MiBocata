@@ -27,6 +27,9 @@ function reservar_bocadillo() {
             .then(data => {
                 if (data.success) {
                     console.log('Pedido realizado con éxito:', data);
+
+
+
                 } else {
                     console.log('Error al realizar el pedido:', data.msg);
                 }
@@ -47,3 +50,4 @@ function reservar_bocadillo() {
         console.error('Error al obtener el bocadillo:', error);
     });
 }
+

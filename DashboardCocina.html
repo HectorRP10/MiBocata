@@ -6,11 +6,12 @@
     <title>Dashboard Cocina</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script src="controllers/logout.js"></script>
+    <script src="controllers/comprueba_sesion.js"></script>
     <script src="controllers/total_bocadillos_dia.js"></script>
     <script src="controllers/filtrar_pedidos.js"></script>
     <link rel='stylesheet' type='text/css' media='screen' href='css/Dashboard_cocina.css'>
 </head>
-<body onload="total_bocadillos_dia(); cargarPedidos() ">
+<body onload="total_bocadillos_dia(); cargarPedidos(); comprueba_sesion(); ">
     <header>
         <img src="images/logoMiBocata.png" alt="" id="logo_app">
         <nav>
